@@ -15,3 +15,6 @@ dist/
 .vscode/
 .idea/
 *.sublime-workspace
+
+# Environment variables
+.env
