@@ -1,10 +1,39 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f9;
+@import "tailwindcss";
+
+@layer base {
+	:root { --max-width: 1100px; }
+	html, body, #root { height: 100%; }
+	body { @apply bg-slate-900 text-slate-100 antialiased leading-relaxed; }
 }
 
-div {
-  padding: 20px;
+@layer components {
+	.app-container {
+		@apply mx-auto px-6 py-6 max-w-[var(--max-width)];
+	}
+
+	.site-header, .site-footer {
+		@apply flex items-center justify-between p-4 mb-5 rounded-xl bg-gradient-to-b from-white/2 to-transparent border border-white/5;
+	}
+
+	.site-title {
+		@apply text-lg font-semibold tracking-tight;
+	}
+
+	.muted { @apply text-slate-400; }
+
+	.card {
+		@apply rounded-lg border border-white/5 p-5 bg-gradient-to-b;
+	}
+
+	.btn {
+		@apply inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sky-900 bg-gradient-to-r from-sky-300 to-sky-500;
+	}
+	.btn.secondary {
+		@apply bg-transparent text-slate-100 border border-white/6;
+	}
+}
+
+@layer utilities {
+	.center { @apply flex items-center justify-center; }
+	.stack { @apply flex flex-col gap-3; }
 }

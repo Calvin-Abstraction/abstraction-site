@@ -1,0 +1,5 @@
+.teamGrid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:16px }
+.card{ background:white; padding:12px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.05); text-align:center }
+.photo{ width:90px; height:90px; border-radius:50%; background:#f0f0f0; margin:0 auto; display:flex; align-items:center; justify-content:center }
+.name{ font-weight:700; margin-top:8px }
+.role{ color:#666; font-size:13px }

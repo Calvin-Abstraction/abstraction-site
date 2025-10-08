@@ -1,36 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+import React from 'react';
+import AppRouter from './router/AppRouter';
 
 function App() {
-  const [data, setData] = useState([]);
-
-    const fetchData = async () => {
-        const { data, error } = await supabase.from('your-table').select('*');
-        if (error) {
-        console.error('Error fetching data:', error);
-        } else {
-        setData(data);
-        }
-    };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  return (
-    <div>
-      <h1>Welcome to Abstraction Site</h1>
-      <ul>
-        {data.map((item) => (
-          <li key={item.id}>{JSON.stringify(item)}</li>
-        ))}
-      </ul>
-    </div>
-  );
+  return <AppRouter />;
 }
 
 export default App;
