@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styles from './Home.module.css'
 
 const sampleEvents = [
   {
@@ -23,25 +22,27 @@ const sampleEvents = [
 function Modal({event, onClose}){
   if(!event) return null
   return (
-    <div className={`${styles.modalOverlay} text-black`} onClick={onClose}>
-      <div className={styles.modal} onClick={e=>e.stopPropagation()}>
-        <div className={styles.modalHeader}>
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center p-4 z-50" onClick={onClose}>
+      <div className="bg-sky-950 rounded-lg shadow-lg max-w-xl w-full p-6" onClick={e=>e.stopPropagation()}>
+        <div className="flex items-start justify-between">
           <div>
-            <div style={{fontWeight:700,fontSize:18}}>{event.title}</div>
-            <div >{event.date} • {event.details.time}</div>
+            <div className="font-semibold text-lg">{event.title}</div>
+            <div className="text-sm text-emerald-600">{event.date} -- {event.details.time}</div>
           </div>
-          <button className={styles.closeBtn} onClick={onClose}>✕</button>
+          <button className="text-slate-500 hover:text-slate-600 ml-4" onClick={onClose}>
+            &#10005;
+          </button>
         </div>
-        <div style={{marginTop:12}}>
-          <div style={{fontWeight:700}}>Hosted by: <span className={styles.highlight}>{event.club}</span></div>
-          <div style={{marginTop:10}}>{event.details.full}</div>
-          <div style={{marginTop:8}}><strong>Location:</strong> {event.details.location}</div>
-          <div style={{marginTop:4}}><strong>Contact:</strong> {event.details.contact}</div>
+        <div className="mt-4 text-zinc-300">
+          <div className="font-medium">Hosted by: <span className="text-emerald-600 font-semibold">{event.club}</span></div>
+          <div className="mt-2">{event.details.full}</div>
+          <div className="mt-3"><strong>Location:</strong> {event.details.location}</div>
+          <div className="mt-1"><strong>Contact:</strong> {event.details.contact}</div>
           {event.details.links && event.details.links.length>0 && (
-            <div style={{marginTop:8}}>
+            <div className="mt-3">
               <strong>Links:</strong>
-              <ul>
-                {event.details.links.map((l,i)=> <li key={i}><a href={l} target="_blank" rel="noreferrer">{l}</a></li>)}
+              <ul className="list-disc list-inside text-emerald-600 mt-1">
+                {event.details.links.map((l,i)=> <li key={i}><a className="underline" href={l} target="_blank" rel="noreferrer">{l}</a></li>)}
               </ul>
             </div>
           )}
@@ -53,10 +54,10 @@ function Modal({event, onClose}){
 
 function EventCard({e, onClick}){
   return (
-    <div className={styles.card} onClick={()=>onClick(e)} role="button" tabIndex={0} onKeyDown={(k)=>k.key==='Enter' && onClick(e)}>
-      <div className={styles.title}>{e.title}</div>
-      <div className={styles.meta}>{e.date} • <span className={styles.highlight}>{e.club}</span></div>
-      <div className={styles.desc}>{e.brief}</div>
+    <div className="bg-white/5 p-4 rounded-lg shadow-sm hover:shadow-md cursor-pointer transition" onClick={()=>onClick(e)} role="button" tabIndex={0} onKeyDown={(k)=>k.key==='Enter' && onClick(e)}>
+      <div className="font-semibold text-md">{e.title}</div>
+      <div className="text-sm text-slate-400">{e.date}  <span className="text-emerald-500 font-medium">{e.club}</span></div>
+      <div className="mt-2 text-slate-200">{e.brief}</div>
     </div>
   )
 }
@@ -65,15 +66,13 @@ export default function Home(){
   const [active, setActive] = useState(null)
 
   return (
-    <div>
-      <div className={styles.hero}>
-        <div>
-          <h1 style={{margin:0}}>Upcoming Events</h1>
-          <p style={{margin:0}} className={styles.highlight}>Join club events, workshops, and meetups across campus.</p>
-        </div>
+    <div className="space-y-8">
+      <div className="bg-gradient-to-r from-emerald-600 to-emerald-400 text-white rounded-lg p-8">
+        <h1 className="text-2xl font-bold m-0">Upcoming Events</h1>
+        <p className="m-0 text-slate-100/90 mt-1">Join club events, workshops, and meetups across campus.</p>
       </div>
 
-      <section className={styles.calendar} aria-label="Event calendar">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" aria-label="Event calendar">
         {sampleEvents.map(ev => (
           <EventCard key={ev.id} e={ev} onClick={(e)=>setActive(e)} />
         ))}

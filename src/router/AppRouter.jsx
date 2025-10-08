@@ -11,7 +11,7 @@ export default function AppRouter(){
   return (
     <Router>
       <Header />
-      <main style={{padding:'20px', minHeight:'70vh'}}>
+      <main className="px-5 py-6 min-h-[70vh] max-w-6xl mx-auto">
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/projects" element={<Projects/>} />

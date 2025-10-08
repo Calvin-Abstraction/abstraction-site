@@ -1,26 +1,25 @@
 import React from 'react'
-import styles from './JoinUs.module.css'
 
 export default function JoinUs(){
   return (
     <div>
-      <h2>Join Us</h2>
-      <p>Fill out this form to join the mailing list. (Form is non-functional in this MVP.)</p>
-      <div className={styles.form}>
-        <div className={styles.field}>
-          <label>Name</label>
-          <input className={styles.input} placeholder="Full name" />
+      <h2 className="text-2xl font-bold">Join Us</h2>
+      <p className="mt-2 text-slate-300">Fill out this form to join the mailing list. (Form is non-functional in this MVP.)</p>
+      <div className="mt-4 bg-white/5 p-4 rounded-md max-w-xl">
+        <div className="mb-3">
+          <label className="block text-sm text-slate-200 mb-1">Name</label>
+          <input className="w-full bg-transparent border border-slate-700 rounded px-3 py-2 text-slate-100" placeholder="Full name" />
         </div>
 
-        <div className={styles.field}>
-          <label>Email</label>
-          <input className={styles.input} placeholder="you@calvin.edu" />
+        <div className="mb-3">
+          <label className="block text-sm text-slate-200 mb-1">Email</label>
+          <input className="w-full bg-transparent border border-slate-700 rounded px-3 py-2 text-slate-100" placeholder="you@calvin.edu" />
         </div>
 
-        <div className={styles.row} style={{marginTop:10}}>
-          <div style={{flex:1}}>
-            <label>Year</label>
-            <select className={styles.input}>
+        <div className="flex gap-4">
+          <div className="flex-1">
+            <label className="block text-sm text-slate-200 mb-1">Year</label>
+            <select className="w-full bg-transparent border border-slate-700 rounded px-3 py-2 text-slate-100">
               <option>Freshman</option>
               <option>Sophomore</option>
               <option>Junior</option>
@@ -28,14 +27,14 @@ export default function JoinUs(){
             </select>
           </div>
 
-          <div style={{flex:2}}>
-            <label>Interests</label>
-            <input className={styles.input} placeholder="e.g. web dev, ML, robotics" />
+          <div className="flex-1">
+            <label className="block text-sm text-slate-200 mb-1">Interests</label>
+            <input className="w-full bg-transparent border border-slate-700 rounded px-3 py-2 text-slate-100" placeholder="e.g. web dev, ML, robotics" />
           </div>
         </div>
 
-        <div style={{marginTop:12}}>
-          <button className={styles.submit}>Sign Up</button>
+        <div className="mt-4">
+          <button className="bg-emerald-600 text-white px-4 py-2 rounded">Sign Up</button>
         </div>
       </div>
     </div>

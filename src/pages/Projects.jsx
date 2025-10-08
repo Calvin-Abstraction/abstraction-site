@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './Projects.module.css'
 
 const projects = [
   {id:1, title:'Campus Map App', desc:'A React app to navigate campus buildings with accessibility filters.', repo:'https://github.com/calvin-cs/campus-map'},
@@ -11,15 +10,15 @@ const projects = [
 export default function Projects(){
   return (
     <div>
-      <h2>Projects</h2>
-      <p>Selected projects by our members. Click the GitHub link to explore the code.</p>
-      <section className={styles.projectsGrid}>
+      <h2 className="text-2xl font-bold">Projects</h2>
+      <p className="mt-2 text-slate-300">Selected projects by our members. Click the GitHub link to explore the code.</p>
+      <section className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {projects.map(p=> (
-          <div key={p.id} className={styles.projCard}>
-            <div className={styles.thumb}>{p.title}</div>
-            <div style={{marginTop:10,fontWeight:700}}>{p.title}</div>
-            <div className={styles.meta} style={{marginTop:6}}>{p.desc}</div>
-            <div style={{marginTop:10}}><a className={styles.btn} href={p.repo} target="_blank" rel="noreferrer">View on GitHub</a></div>
+          <div key={p.id} className="bg-white/5 p-4 rounded-lg shadow-sm">
+            <div className="bg-slate-600 h-28 rounded-md flex items-center justify-center text-white/80">{p.title}</div>
+            <div className="mt-3 font-semibold">{p.title}</div>
+            <div className="text-slate-300 mt-2">{p.desc}</div>
+            <div className="mt-3"><a className="inline-block bg-emerald-600 text-white px-3 py-1 rounded" href={p.repo} target="_blank" rel="noreferrer">View on GitHub</a></div>
           </div>
         ))}
       </section>
