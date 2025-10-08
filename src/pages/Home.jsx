@@ -23,12 +23,12 @@ const sampleEvents = [
 function Modal({event, onClose}){
   if(!event) return null
   return (
-    <div className={styles.modalOverlay} onClick={onClose}>
+    <div className={`${styles.modalOverlay} text-black`} onClick={onClose}>
       <div className={styles.modal} onClick={e=>e.stopPropagation()}>
         <div className={styles.modalHeader}>
           <div>
             <div style={{fontWeight:700,fontSize:18}}>{event.title}</div>
-            <div style={{color:'#666'}}>{event.date} • {event.details.time}</div>
+            <div >{event.date} • {event.details.time}</div>
           </div>
           <button className={styles.closeBtn} onClick={onClose}>✕</button>
         </div>
@@ -69,9 +69,8 @@ export default function Home(){
       <div className={styles.hero}>
         <div>
           <h1 style={{margin:0}}>Upcoming Events</h1>
-          <p style={{margin:0,color:'#555'}}>Join club events, workshops, and meetups across campus.</p>
+          <p style={{margin:0}} className={styles.highlight}>Join club events, workshops, and meetups across campus.</p>
         </div>
-        <a className={styles.ctaBtn} href="https://abstractionhackathon.org/" target="_blank" rel="noreferrer">Calvin Hackathon</a>
       </div>
 
       <section className={styles.calendar} aria-label="Event calendar">

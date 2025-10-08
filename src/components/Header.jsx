@@ -5,10 +5,10 @@ export default function Header(){
   return (
     <header className="site-header">
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-md bg-emerald-400 flex items-center justify-center text-white font-bold">CS</div>
+        <div className="w-10 h-10 rounded-md bg-emerald-400 flex items-center justify-center text-white font-bold">A</div>
         <div>
-          <div className="font-semibold">Calvin CS Club</div>
-          <div className="text-sm text-slate-400">Computer Science Student Organization</div>
+          <div className="font-semibold">Abstraction</div>
+          <div className="text-sm text-slate-400">Calvin Computer Science</div>
         </div>
       </div>
 
